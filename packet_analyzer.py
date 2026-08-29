@@ -1,11 +1,13 @@
-from scapy.all import sniff, IP, TCP, UDP, ICMP, Raw
+from scapy.all import sniff, wrpcap, IP, TCP, UDP, ICMP, Raw
 from datetime import datetime
 import argparse
 
 stats = {"total": 0, "tcp": 0, "udp": 0, "icmp": 0, "other": 0}
+captured_packets = []
 
 
 def analyze_packet(packet):
+    captured_packets.append(packet)
     if IP in packet:
         ip_layer = packet[IP]
         timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
@@ -49,6 +51,7 @@ def main():
     parser.add_argument("-i", "--iface", default="Wi-Fi", help="Network interface (default: Wi-Fi)")
     parser.add_argument("-f", "--filter", default="ip", help="BPF filter (e.g. 'tcp port 443')")
     parser.add_argument("-c", "--count", type=int, default=0, help="Number of packets to capture (0 = infinite)")
+    parser.add_argument("-o", "--output", default=None, help="Save captured packets to a .pcap file (e.g. capture.pcap)")
     args = parser.parse_args()
 
     print(f"Starting capture on iface={args.iface} filter='{args.filter}'")
@@ -60,6 +63,9 @@ def main():
         pass
     finally:
         print_summary()
+        if args.output:
+            wrpcap(args.output, captured_packets)
+            print(f"Saved {len(captured_packets)} packets to {args.output}")
 
 
 if __name__ == "__main__":
