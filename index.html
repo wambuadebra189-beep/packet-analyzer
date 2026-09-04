@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debra Wambua — Computer Science</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg: #0d1117;
+    --surface: #151b23;
+    --line: #26303d;
+    --text: #e3e8ef;
+    --muted: #8b96a8;
+    --accent: #5fd4b8;
+    --accent-dim: #3a8f7c;
+    --flag: #e8a659;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{ max-width:720px; margin:0 auto; padding:64px 24px 96px; }
+
+  code, .mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* header / packet strip */
+  header{ margin-bottom:56px; }
+
+  .packet-strip{
+    display:flex; gap:2px; margin-bottom:28px; height:6px;
+  }
+  .packet-strip span{ flex:1; background:var(--line); }
+  .packet-strip span.on{ background:var(--accent); }
+
+  h1{
+    font-size:2.1rem; font-weight:700; letter-spacing:-0.02em;
+    color:var(--text); margin-bottom:6px;
+  }
+
+  .role-line{
+    font-family:'JetBrains Mono', monospace; font-size:0.92rem;
+    color:var(--accent); margin-bottom:18px;
+  }
+
+  .intro{ color:var(--muted); font-size:1.02rem; max-width:56ch; }
+
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:18px; margin-top:22px;
+    font-family:'JetBrains Mono', monospace; font-size:0.85rem;
+  }
+  .contact-row a{ color:var(--text); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; }
+  .contact-row a:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* sections */
+  section{ margin-top:52px; }
+
+  .section-head{
+    display:flex; align-items:baseline; gap:10px; margin-bottom:20px;
+    border-bottom:1px solid var(--line); padding-bottom:10px;
+  }
+  .section-head h2{ font-size:1rem; font-weight:600; color:var(--text); }
+  .section-head .tag{
+    font-family:'JetBrains Mono', monospace; font-size:0.72rem; color:var(--muted);
+  }
+
+  /* project card as a "packet header" */
+  .packet{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:22px 24px; margin-bottom:20px;
+  }
+  .packet h3{ font-size:1.08rem; font-weight:700; margin-bottom:6px; }
+  .packet .stack{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--accent); margin-bottom:14px; }
+  .packet p{ color:var(--muted); font-size:0.95rem; margin-bottom:14px; }
+
+  .field-list{ display:grid; grid-template-columns:1fr 1fr; gap:10px 20px; margin-bottom:16px; }
+  .field{
+    font-family:'JetBrains Mono', monospace; font-size:0.78rem;
+    border-left:2px solid var(--accent-dim); padding-left:10px;
+  }
+  .field .k{ color:var(--muted); display:block; }
+  .field .v{ color:var(--text); }
+
+  .packet-links{ display:flex; gap:16px; font-family:'JetBrains Mono', monospace; font-size:0.82rem; }
+  .packet-links a{ color:var(--accent); text-decoration:none; }
+  .packet-links a:hover{ text-decoration:underline; }
+
+  /* skills */
+  .skill-grid{ display:flex; flex-wrap:wrap; gap:10px; }
+  .skill{
+    font-family:'JetBrains Mono', monospace; font-size:0.82rem;
+    background:var(--surface); border:1px solid var(--line);
+    padding:7px 13px; border-radius:3px; color:var(--text);
+  }
+
+  /* education */
+  .edu-row{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; }
+  .edu-row .school{ font-weight:600; }
+  .edu-row .date{ font-family:'JetBrains Mono', monospace; font-size:0.82rem; color:var(--muted); }
+  .edu-sub{ color:var(--muted); font-size:0.92rem; margin-top:4px; }
+
+  footer{
+    margin-top:70px; padding-top:22px; border-top:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--muted);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+  footer a{ color:var(--muted); }
+  footer a:hover{ color:var(--accent); }
+
+  @media (max-width:520px){
+    .field-list{ grid-template-columns:1fr; }
+    h1{ font-size:1.7rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="packet-strip">
+      <span class="on"></span><span class="on"></span><span class="on"></span><span></span>
+      <span></span><span class="on"></span><span></span><span></span>
+      <span></span><span></span><span class="on"></span><span></span>
+    </div>
+    <h1>Debra Wambua</h1>
+    <div class="role-line">computer science &nbsp;/&nbsp; kabarak university &nbsp;/&nbsp; nakuru, kenya</div>
+    <p class="intro">
+      Studying computer science at Kabarak University, expected May 2028. Interested in networks,
+      systems-level programming, and how AI tools can speed up the way I learn and build.
+    </p>
+    <div class="contact-row">
+      <a href="mailto:wambuadebra1@gmail.com">wambuadebra1@gmail.com</a>
+      <a href="tel:+254704146898">+254 704 146 898</a>
+      <a href="https://github.com/wambuadebra189-beep" target="_blank" rel="noopener">github.com/wambuadebra189-beep</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <h2>Projects</h2>
+      <span class="tag">// 1 shown</span>
+    </div>
+
+    <div class="packet">
+      <h3>Custom TCP/IP Packet Analyzer</h3>
+      <div class="stack">python · scapy · cli</div>
+      <p>
+        A command-line tool that captures and parses live network traffic in real time —
+        decoding IP, TCP, UDP, and ICMP headers, ports, and TCP flags as packets arrive.
+      </p>
+      <div class="field-list">
+        <div class="field"><span class="k">FILTERING</span><span class="v">Custom BPF filters</span></div>
+        <div class="field"><span class="k">EXPORT</span><span class="v">.pcap, Wireshark-compatible</span></div>
+        <div class="field"><span class="k">OUTPUT</span><span class="v">Protocol-level capture stats</span></div>
+        <div class="field"><span class="k">BUILT WITH</span><span class="v">Claude, for debugging &amp; design</span></div>
+      </div>
+      <div class="packet-links">
+        <a href="https://github.com/wambuadebra189-beep/packet-analyzer" target="_blank" rel="noopener">source →</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Skills</h2>
+      <span class="tag">// languages &amp; tools</span>
+    </div>
+    <div class="skill-grid">
+      <span class="skill">Python</span>
+      <span class="skill">C</span>
+      <span class="skill">Java</span>
+      <span class="skill">Git</span>
+      <span class="skill">Scapy</span>
+      <span class="skill">Wireshark</span>
+      <span class="skill">Linux / CLI</span>
+      <span class="skill">TCP/IP Networking</span>
+      <span class="skill">Claude — AI-assisted dev &amp; study</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Education</h2>
+      <span class="tag">// current</span>
+    </div>
+    <div class="edu-row">
+      <span class="school">Kabarak University — B.Sc. Computer Science</span>
+      <span class="date">exp. may 2028</span>
+    </div>
+    <div class="edu-sub">Nakuru, Kenya</div>
+  </section>
+
+  <footer>
+    <span>debra wambua</span>
+    <a href="mailto:wambuadebra1@gmail.com">get in touch →</a>
+  </footer>
+
+</div>
+</body>
+</html>
